@@ -14,10 +14,12 @@ import { AuthContext } from "./contexts/auth";
 
 const AppRoutes = () => {
 
+    
+
     const [user, setUser] = useState(null);
 
     const login = (email, password) => {
-        console.log('login', {email, password});
+        console.log('login auth', {email, password});
         setUser({ id: "123", email})
 
     }
@@ -27,10 +29,12 @@ const AppRoutes = () => {
     const logout = () => {
         console.log('logout');
     }
-    }
+    
 
 
-  return (
+
+
+    return (
     <Router>
       <AuthContext.Provider value={{authenticated: !!user, user, login}}>
         <Routes>
@@ -41,5 +45,15 @@ const AppRoutes = () => {
     </Router>
   );
 };
+
+
+
+
+
+
+
+
+
+
 
 export default AppRoutes;
