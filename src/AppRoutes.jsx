@@ -10,25 +10,12 @@ import {
   Navigate,
 } from "react-router-dom";
 
-import { AuthContext } from "./contexts/auth";
+import { AuthProvider } from "./contexts/auth";
 
 const AppRoutes = () => {
 
     
 
-    const [user, setUser] = useState(null);
-
-    const login = (email, password) => {
-        console.log('login auth', {email, password});
-        setUser({ id: "123", email})
-
-    }
-
-    // user! = null   então => authenticated = true
-
-    const logout = () => {
-        console.log('logout');
-    }
     
 
 
@@ -36,12 +23,12 @@ const AppRoutes = () => {
 
     return (
     <Router>
-      <AuthContext.Provider value={{authenticated: !!user, user, login}}>
+      <AuthProvider>
         <Routes>
           <Route exact path="/login" element={<LoginPage />} />
           <Route exact path="/" element={<HomePage />} />
         </Routes>
-      </AuthContext.Provider>
+      </AuthProvider>
     </Router>
   );
 };
