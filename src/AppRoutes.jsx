@@ -13,7 +13,7 @@ import {
 import { AuthProvider, AuthContext } from "./contexts/auth";
 
 const AppRoutes = () => {
-      //elemento privado
+      //route authentication, screen access permission
       const Private = ({ children }) => {
          const { authenticated} = useContext(AuthContext);
          

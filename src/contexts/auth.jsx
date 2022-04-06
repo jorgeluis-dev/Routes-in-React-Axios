@@ -11,6 +11,15 @@ export const AuthProvider = ({ children}) => {
 
         console.log('login auth', {email, password});
 
+        //api [created uma session] == return user[token]
+        const loggedUser = {
+            id: '123',
+            email: ''
+        }
+
+        localStorage.setItem("user", JSON.stringify(loggedUser));
+
+
         if(password === 'secret') {    
              setUser({ id: "123", email})
                 navigate('/');
